@@ -37,30 +37,79 @@ def comp_hand():
         compint2 = "Paper"
     elif hand2 == 3:
         compint2 = "Scissors"
-    return(compint,compint2)
+    return[compint,compint2]
+
 def player_hand():
     handinput = input("What are you gonna throw first?: ")
-    if handinput == "rock":
-        handint = 1
-    elif handinput == "paper":
-        handint = 2
-    elif handinput == "scissors":
-        handint = 3
     handinput2 = input("What are you gonna throw next?: ")
-    if handinput2 == "rock":
-        handint2 = 1
-    elif handinput2 == "paper":
-        handint2 = 2
-    elif handinput2 == "scissors":
-        handint2 = 3
-    return(handint,handint2)
+
+    return[handinput.capitalize(),handinput2.capitalize()]
+
+def take_away(hand_input):
+    remove = input("What hand would you like to take away?, Left or Right?: ")
+    if remove.capitalize() == "Right":
+        del(hand_input[1])
+    elif remove.capitalize() == "Left":
+        del(hand_input[0])
+    return(hand_input)
+def comp_away(comp_hand):
+    compremove = (random.randint(1,2))
+    if compremove == 1:
+        del(comp_hand[1])
+    elif compremove== 2:
+        del(comp_hand[0])
+    return(comp_hand)
 
 def main():
-    player_hand()
-    print(comp_hand())
-    print(player_hand)
+    score = 0
+    player_choices = player_hand()
+    comp_choices = comp_hand()
+    print(f"The computer chose :{comp_choices}")
+    print(f"You chose {player_choices}")
+    one_hand = take_away(player_choices)
+    comp_new_hand = comp_away(comp_choices)
+    print(f"Now the computer's hand is {comp_new_hand}")
+    print(f"Now your hand is {one_hand}")
+    if one_hand == "Rock" and comp_new_hand == "Rock":
+        print("You tied!")
+        score = score + 0
+    elif one_hand == "Rock" and comp_new_hand == "Paper":
+        print("You lost!")
+        score = score - 1
+    elif one_hand == "Rock" and comp_new_hand == "Scissors":
+        print("You win!")
+        score = score + 1
+    elif one_hand == "Paper" and comp_new_hand == "Rock":
+        print("You win!")
+        score = score + 1
+    elif one_hand == "Paper" and comp_new_hand == "Paper":
+        print("You tied!")
+        score = score + 0
+    elif one_hand == "Paper" and comp_new_hand == "Scissors":
+        print("You lost!")
+        score = score - 1
+    elif one_hand == "Scissors" and comp_new_hand == "Rock":
+        print("You lost!")
+        score = score - 1
+    elif one_hand == "Scissors" and comp_new_hand == "Paper":
+        print("You won!")
+        score = score + 1
+    elif one_hand == "Scissors" and comp_new_hand == "Scissors":
+        print("You tied!")
+        score = score + 0
 
 
+
+    play_again = input("Play again?: ")
+    if play_again == "Yes":
+        return()
+    elif play_again == "No":
+        print(f"Good Game! \n Your score was {score}")
+        exit()
+
+
+
+        
 main()
 
 
