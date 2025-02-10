@@ -33,7 +33,7 @@ yearly_totals = []
 for column in range(len(populations[0])):
     sum = 0
     for row in range (len(populations)):
-        sum = sum + populations([row][column])
+        sum = sum + populations[row][column]
     yearly_totals.append(sum)
 
 print(yearly_totals)

@@ -71,67 +71,38 @@ def main():
     print(f"Now the computer's hand is {comp_new_hand}")
     print(f"Now your hand is {one_hand}")
     
-    if one_hand == "Rock":
-        if comp_new_hand == "Rock":
+    if one_hand[0] == "Rock":
+        if comp_new_hand[0] == "Rock":
             print("You tied!")
             score = score + 0
-        elif comp_new_hand == "Paper":
+        elif comp_new_hand[0] == "Paper":
             print("You lost!")
             score = score - 1
-        elif comp_new_hand == "Scissors":
+        elif comp_new_hand[0] == "Scissors":
             print("You win!")
             score = score + 1
-    if one_hand == "Paper":
-        if comp_new_hand == "Rock":
+    elif one_hand[0] == "Paper":
+        if comp_new_hand[0] == "Rock":
             print("You win!")
             score = score + 1
-        elif comp_new_hand == "Paper":
+        elif comp_new_hand[0] == "Paper":
             print("You tied!")
             score = score + 0
-        elif comp_new_hand == "Scissors":
+        elif comp_new_hand[0] == "Scissors":
             print("You lost!")
             score = score - 1
-    if one_hand == "Scissors":
-        if comp_new_hand == "Rock":
+    elif one_hand[0] == "Scissors":
+        if comp_new_hand[0] == "Rock":
             print("You lost!")
             score = score - 1
-        elif comp_new_hand == "Paper":
+        elif comp_new_hand[0] == "Paper":
             print("You win!")
             score = score + 1
-        elif comp_new_hand == "Scissors":
+        elif comp_new_hand[0] == "Scissors":
             print("You tied!")
             score = score + 0
-    '''
-    if one_hand == "Rock" and comp_new_hand == "Rock":
-        print("You tied!")
-        score = score + 0
-    elif one_hand == "Rock" and comp_new_hand == "Paper":
-        print("You lost!")
-        score = score - 1
-    elif one_hand == "Rock" and comp_new_hand == "Scissors":
-        print("You win!")
-        score = score + 1
-    elif one_hand == "Paper" and comp_new_hand == "Rock":
-        print("You win!")
-        score = score + 1
-    elif one_hand == "Paper" and comp_new_hand == "Paper":
-        print("You tied!")
-        score = score + 0
-    elif one_hand == "Paper" and comp_new_hand == "Scissors":
-        print("You lost!")
-        score = score - 1
-    elif one_hand == "Scissors" and comp_new_hand == "Rock":
-        print("You lost!")
-        score = score - 1
-    elif one_hand == "Scissors" and comp_new_hand == "Paper":
-        print("You won!")
-        score = score + 1
-    elif one_hand == "Scissors" and comp_new_hand == "Scissors":
-        print("You tied!")
-        score = score + 0
-    '''
 
-
+        
     play_again = input("Play again?: ")
     if play_again.capitalize() == "Yes":
         return(main())
